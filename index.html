@@ -256,24 +256,129 @@
       font-weight: 600;
       margin-top: 1rem;
     }
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 1rem 2rem;
+      z-index: 999;
+      display: flex;
+      justify-content: center;
+      backdrop-filter: blur(8px);
+    }
 
+    .navbar-container {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    .brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    header {
+      padding-top: 80px; /* prevent overlap with navbar */
+    }
+    .menu-toggle {
+      display: none;
+    }
+      @media screen and (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        padding: 1rem;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .navbar-container {
+        flex-wrap: wrap;
+      }
+
+      .menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: white;
+      }
+    }
+    .nav-links li {
+      margin: 0.5rem 0;
+    }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggle = document.querySelector('.menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+
+      toggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+    });
+  </script>
 </head>
 <body>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="menu-toggle">☰</div>
+      <div class="brand">Sagesse De Dieu</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#portfolio">Works</a></li>
+        <li><a href="#training">Training</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#map">Visit</a></li>
+        <li><a href="#contact">Quote</a></li>
+      </ul>
+    </div>
+  </nav>
   <header>
     <div class="hero-content">
       <h1>Crafted for Legacy</h1>
       <p>Bespoke furniture, refined by tradition and crafted for distinction. Welcome to Sagesse De Dieu Ltd.</p>
-      <a href="#about"><button class="btn" role="button" aria-label="Explore Our Story">Explore Our Story</button></a>
+      <a href="#about"><button class="btn" aria-label="Explore Our Story">Explore Our Story</button></a>
     </div>
   </header>
 
   <section id="about">
     <h2 class="section-title">Who We Are</h2>
     <div class="about">
-      <img src="luxury-furniture.jpg" alt="Hand-carved white and black luxury kitchen furniture" />
+      <img src="luxury-furniture.jpg" alt="Hand-carved white and black luxury kitchen furniture" >
       <p>
-        At Sagesse De Dieu Limited, we don’t just build furniture—we sculpt memories, elevate interiors, and train the next generation of artisan carpenters through our Mission 2025 initiative. Each creation reflects heritage, artistry, and excellence.
+        At Sagesse De Dieu Limited, we don't just build furniture—we sculpt memories, elevate interiors, and train the next generation of artisan carpenters through our Mission 2025 initiative. Each creation reflects heritage, artistry, and excellence.
       </p>
     </div>
   </section>
@@ -281,9 +386,9 @@
   <section id="portfolio">
     <h2 class="section-title">Our Signature Works</h2>
     <div class="portfolio-grid">
-      <img src="granite-kitchen-table.png" alt="Granite kitchen island with luxury detail" >
+      <img src="luxury-cushion.jpg" alt="Luxury cushion set" >
       <img src="luxury-black-cabinet.jpg" alt="Sleek black storage cabinet with gold accents" >
-      <img src="artisan-capentry-workshop.png" alt="Young carpenters working in traditional workshop" >
+      <img src="bookshelf.jpg" alt="MDF bookshelf" >
     </div>
   </section>
 
@@ -314,7 +419,7 @@
 
   <section id="map">
     <h2 class="section-title">Visit Us</h2>
-    <iframe
+    <iframe title="google map location of Sagesse De Dieu Ltd"
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3939.981205675768!2d7.2798194!3d9.0960607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e77c1817fd85b%3A0x1967abf33b5fd431!2sSagesse%20De%20Dieu%20Limited!5e0!3m2!1sen!2sng!4v1718550000000!5m2!1sen!2sng"
       allowfullscreen=""
       loading="lazy"
@@ -326,13 +431,13 @@
   <h2 class="section-title">Request a Furniture Quote</h2>
   <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
     <label for="name">Full Name <span style="color: red;">*</span></label>
-    <input type="text" id="name" name="name" required />
+    <input type="text" id="name" name="name" required >
 
     <label for="email">Email Address</label>
-    <input type="email" id="email" name="_replyto" required />
+    <input type="email" id="email" name="_replyto" required >
 
     <label for="phone">Phone Number</label>
-    <input type="tel" id="phone" name="phone" required />
+    <input type="tel" id="phone" name="phone" required >
 
     <label for="furniture-type">Type of Furniture</label>
     <select id="furniture-type" name="furniture_type" required>
@@ -386,9 +491,9 @@
     <p>Contact us: <a href="mailto:sagesse.nigeria@gmail.com">sagesse.nigeria@gmail.com</a></p>
   </footer>
 
-  <a class="whatsapp-float" href="https://wa.me/234XXXXXXXXXX" target="_blank" aria-label="Chat on WhatsApp">
+  <a class="whatsapp-float" href="https://wa.me/2348099999369" target="_blank" aria-label="Chat on WhatsApp">
 
-    <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+    <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
 	 width="800px" height="800px" viewBox="0 0 30.667 30.667"
 	 xml:space="preserve">
 <g>
