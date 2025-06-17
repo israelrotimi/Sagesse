@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sagesse De Dieu Ltd</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --dark: #1a1a1a;
+      --light: #f5f1ea;
+      --gold: #c6a664;
+      --charcoal: #2e2e2e;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--light);
+      color: var(--charcoal);
+      line-height: 1.6;
+    }
+
+    header {
+      height: 100vh;
+      background: url('bg-img.avif') center/cover no-repeat;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 1rem;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      padding: 0.8rem 1.6rem;
+      background: var(--gold);
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #b3924e;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: var(--dark);
+      text-align: center;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .about img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .about p {
+      font-size: 1.1rem;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .portfolio-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      transition: transform 0.4s ease;
+    }
+
+    .portfolio-grid img:hover {
+      transform: scale(1.03);
+    }
+
+    .testimonial, .training {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+
+    .testimonial blockquote {
+      font-style: italic;
+      margin-bottom: 1rem;
+      color: #555;
+    }
+
+    .testimonial cite {
+      font-weight: bold;
+      color: var(--charcoal);
+    }
+
+    #map iframe {
+      width: 100%;
+      height: 400px;
+      border: 0;
+      border-radius: 12px;
+    }
+
+    footer {
+      text-align: center;
+      background-color: var(--dark);
+      color: white;
+      padding: 2rem 1rem;
+    }
+
+    footer a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      font-size: 24px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 1000;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media(max-width: 768px) {
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero-content p {
+        font-size: 1rem;
+      }
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 700px;
+      margin: 0 auto 4rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+     .contact-form select {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      background-color: #fff;
+      color: var(--charcoal);
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4L2 0zM2 5L0 3h4L2 5z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      background-size: 0.65rem auto;
+    }
+
+    .contact-form select:invalid {
+      color: #999;
+    }
+
+    .contact-form option[value=''] {
+      display: none;
+    }
+
+    .contact-form label {
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="hero-content">
+      <h1>Crafted for Legacy</h1>
+      <p>Bespoke furniture, refined by tradition and crafted for distinction. Welcome to Sagesse De Dieu Ltd.</p>
+      <a href="#about"><button class="btn" role="button" aria-label="Explore Our Story">Explore Our Story</button></a>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2 class="section-title">Who We Are</h2>
+    <div class="about">
+      <img src="luxury-furniture.jpg" alt="Hand-carved white and black luxury kitchen furniture" />
+      <p>
+        At Sagesse De Dieu Limited, we don’t just build furniture—we sculpt memories, elevate interiors, and train the next generation of artisan carpenters through our Mission 2025 initiative. Each creation reflects heritage, artistry, and excellence.
+      </p>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <h2 class="section-title">Our Signature Works</h2>
+    <div class="portfolio-grid">
+      <img src="granite-kitchen-table.png" alt="Granite kitchen island with luxury detail" >
+      <img src="luxury-black-cabinet.jpg" alt="Sleek black storage cabinet with gold accents" >
+      <img src="artisan-capentry-workshop.png" alt="Young carpenters working in traditional workshop" >
+    </div>
+  </section>
+
+  <section id="training">
+    <h2 class="section-title">Legacy Through Training</h2>
+    <div class="training">
+      <p>
+        Through our Sagesse College of Traditional Carpentry, we're not just passing on skills—we're preserving culture. Students learn the artistry of wood, the discipline of design, and the value of creating with purpose. Our alumni are building Nigeria's future interiors, one masterpiece at a time.
+      </p>
+    </div>
+  </section>
+
+  <section id="testimonials">
+    <h2 class="section-title">What Our Clients Say</h2>
+    <div class="testimonial">
+      <blockquote>
+        “I've never seen such precision in custom woodwork. My kitchen island is now the centerpiece of my home.”
+      </blockquote>
+      <cite>- Homeowner, Abuja</cite>
+    </div>
+    <div class="testimonial">
+      <blockquote>
+        “Training at Sagesse transformed my carpentry. The instructors were passionate and empowering.”
+      </blockquote>
+      <cite>- Alumni, Class of 2023</cite>
+    </div>
+  </section>
+
+  <section id="map">
+    <h2 class="section-title">Visit Us</h2>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3939.981205675768!2d7.2798194!3d9.0960607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e77c1817fd85b%3A0x1967abf33b5fd431!2sSagesse%20De%20Dieu%20Limited!5e0!3m2!1sen!2sng!4v1718550000000!5m2!1sen!2sng"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </section>
+
+  <section id="contact">
+  <h2 class="section-title">Request a Furniture Quote</h2>
+  <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
+    <label for="name">Full Name <span style="color: red;">*</span></label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="_replyto" required />
+
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" required />
+
+    <label for="furniture-type">Type of Furniture</label>
+    <select id="furniture-type" name="furniture_type" required>
+      <option value="">Select a type</option>
+      <option>Kitchen Cabinet</option>
+      <option>Wardrobe</option>
+      <option>Bedframe</option>
+      <option>TV Stand</option>
+      <option>Office Desk</option>
+      <option>Dining Table</option>
+      <option>Custom Design</option>
+    </select>
+
+    <label for="material">Preferred Material</label>
+    <select id="material" name="material">
+      <option value="">Select a material</option>
+      <option>HDF</option>
+      <option>MDF</option>
+      <option>Solid Wood</option>
+      <option>Mahogany</option>
+      <option>Granite Top</option>
+      <option>Glass</option>
+      <option>Mix / Not Sure</option>
+    </select>
+
+    <label for="dimensions">Approximate Dimensions</label>
+    <input type="text" id="dimensions" name="dimensions" placeholder="e.g. 6ft by 4ft" />
+
+    <label for="location">Installation Location</label>
+    <input type="text" id="location" name="location" placeholder="e.g. Gwarinpa, Abuja" />
+
+    <label for="budget">Estimated Budget (₦)</label>
+    <select id="budget" name="budget">
+      <option value="">Select budget range</option>
+      <option>₦50,000 - ₦100,000</option>
+      <option>₦100,000 - ₦250,000</option>
+      <option>₦250,000 - ₦500,000</option>
+      <option>₦500,000 - ₦1,000,000</option>
+      <option>₦1,000,000+</option>
+    </select>
+
+    <label for="message">Additional Notes</label>
+    <textarea id="message" name="message" rows="5" placeholder="Any design inspiration, timelines or preferences?"></textarea>
+
+    <button type="submit" class="btn">Submit Request</button>
+  </form>
+</section>
+
+  <footer>
+    <p>&copy; 2025 Sagesse De Dieu Ltd. All rights reserved. | Abuja, Nigeria</p>
+    <p>Contact us: <a href="mailto:sagesse.nigeria@gmail.com">sagesse.nigeria@gmail.com</a></p>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/234XXXXXXXXXX" target="_blank" aria-label="Chat on WhatsApp">
+
+    <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 width="800px" height="800px" viewBox="0 0 30.667 30.667"
+	 xml:space="preserve">
+<g>
+	<path d="M30.667,14.939c0,8.25-6.74,14.938-15.056,14.938c-2.639,0-5.118-0.675-7.276-1.857L0,30.667l2.717-8.017
+		c-1.37-2.25-2.159-4.892-2.159-7.712C0.559,6.688,7.297,0,15.613,0C23.928,0.002,30.667,6.689,30.667,14.939z M15.61,2.382
+		c-6.979,0-12.656,5.634-12.656,12.56c0,2.748,0.896,5.292,2.411,7.362l-1.58,4.663l4.862-1.545c2,1.312,4.393,2.076,6.963,2.076
+		c6.979,0,12.658-5.633,12.658-12.559C28.27,8.016,22.59,2.382,15.61,2.382z M23.214,18.38c-0.094-0.151-0.34-0.243-0.708-0.427
+		c-0.367-0.184-2.184-1.069-2.521-1.189c-0.34-0.123-0.586-0.185-0.832,0.182c-0.243,0.367-0.951,1.191-1.168,1.437
+		c-0.215,0.245-0.43,0.276-0.799,0.095c-0.369-0.186-1.559-0.57-2.969-1.817c-1.097-0.972-1.838-2.169-2.052-2.536
+		c-0.217-0.366-0.022-0.564,0.161-0.746c0.165-0.165,0.369-0.428,0.554-0.643c0.185-0.213,0.246-0.364,0.369-0.609
+		c0.121-0.245,0.06-0.458-0.031-0.643c-0.092-0.184-0.829-1.984-1.138-2.717c-0.307-0.732-0.614-0.611-0.83-0.611
+		c-0.215,0-0.461-0.03-0.707-0.03S9.897,8.215,9.56,8.582s-1.291,1.252-1.291,3.054c0,1.804,1.321,3.543,1.506,3.787
+		c0.186,0.243,2.554,4.062,6.305,5.528c3.753,1.465,3.753,0.976,4.429,0.914c0.678-0.062,2.184-0.885,2.49-1.739
+		C23.307,19.268,23.307,18.533,23.214,18.38z"/>
+</g>
+</svg>
+  </a>
+</body>
+</html>
